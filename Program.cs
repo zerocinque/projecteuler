@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+var problem = new Problem002();
 Console.WriteLine("Hello, World!");
+Console.WriteLine(problem.Resolve());
