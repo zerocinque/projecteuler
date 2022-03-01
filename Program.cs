@@ -1,4 +1,4 @@
 ﻿
-var problem = new Problem002();
-Console.WriteLine("Hello, World!");
+var problem = new Problem004();
+Console.WriteLine("Hello, Wold!");
 Console.WriteLine(problem.Resolve());
