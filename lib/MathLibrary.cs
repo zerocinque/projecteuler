@@ -5,21 +5,20 @@ namespace Library
 {
     public static class MathLibrary
     {
-        public static bool IsPrime(this int n){
+        public static bool IsPrime(this int n)
+        {
             return ((BigInteger)n).IsPrime();
         }
-
         public static bool IsPrime(this long n)
         {
             return ((BigInteger)n).IsPrime();
         }
-
         public static bool IsPrime(this ulong n)
         {
             return ((BigInteger)n).IsPrime();
         }
-
-        public static bool IsPrime(this BigInteger n){
+        public static bool IsPrime(this BigInteger n)
+        {
             if (n == 1) return false;
             else if (n < 4) return true;  //2 and 3 are prime
             else if (n % 2 == 0) return false;
@@ -37,6 +36,46 @@ namespace Library
                 }
             }
             return true;
+        }
+
+
+        public static List<BigInteger> primeFactors(this int n){
+            return ((BigInteger)n).primeFactors();
+        }
+        public static List<BigInteger> primeFactors(this long n){
+            return ((BigInteger)n).primeFactors();
+        }
+        public static List<BigInteger> primeFactors(this ulong n){
+            return ((BigInteger)n).primeFactors();
+        }
+        public static List<BigInteger> primeFactors(this BigInteger n)
+        {
+            List<BigInteger> factors = new List<BigInteger>();
+            // Print the number of 2s that divide n
+            while (n % 2 == 0)
+            {
+                factors.Add(2);
+                n /= 2;
+            }
+
+            // n must be odd at this point. So we can
+            // skip one element (Note i = i +2)
+            for (int i = 3; i <= Math.Sqrt((double)n); i += 2)
+            {
+                // While i divides n, print i and divide n
+                while (n % i == 0)
+                {
+                    factors.Add(i);
+                    n /= i;
+                }
+            }
+
+            // This condition is to handle the case whien
+            // n is a prime number greater than 2
+            if (n > 2)
+                factors.Add(n);
+
+            return factors;
         }
 
     }
