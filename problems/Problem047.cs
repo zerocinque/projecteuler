@@ -18,7 +18,7 @@ public class Problem047
 
         for (int i = 1; true; i++)
         {
-            var factors = i.primeFactors();
+            var factors = i.PrimeFactors();
             factors = factors.Distinct().ToList();
             bool factorsArePrime = true;
 

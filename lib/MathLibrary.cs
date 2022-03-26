@@ -39,16 +39,19 @@ namespace Library
         }
 
 
-        public static List<BigInteger> primeFactors(this int n){
-            return ((BigInteger)n).primeFactors();
+        public static List<BigInteger> PrimeFactors(this int n)
+        {
+            return ((BigInteger)n).PrimeFactors();
         }
-        public static List<BigInteger> primeFactors(this long n){
-            return ((BigInteger)n).primeFactors();
+        public static List<BigInteger> PrimeFactors(this long n)
+        {
+            return ((BigInteger)n).PrimeFactors();
         }
-        public static List<BigInteger> primeFactors(this ulong n){
-            return ((BigInteger)n).primeFactors();
+        public static List<BigInteger> PrimeFactors(this ulong n)
+        {
+            return ((BigInteger)n).PrimeFactors();
         }
-        public static List<BigInteger> primeFactors(this BigInteger n)
+        public static List<BigInteger> PrimeFactors(this BigInteger n)
         {
             List<BigInteger> factors = new List<BigInteger>();
             // Print the number of 2s that divide n
@@ -78,5 +81,20 @@ namespace Library
             return factors;
         }
 
+        public static int FactorialNumber(this int n)
+        {
+            return (int)((BigInteger)n).FactorialNumber();
+        }
+
+        public static BigInteger FactorialNumber(this BigInteger n){
+            if(n==0) return BigInteger.One;
+            
+            BigInteger factorial = n;
+
+            for(BigInteger i = n-1; i>1; i--)
+                factorial *= i;
+            
+            return factorial;
+        }
     }
 }
