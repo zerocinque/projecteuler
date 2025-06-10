@@ -1,7 +1,7 @@
 
 using System.Numerics;
 
-namespace Library
+namespace ProjectEuler.Lib
 {
     public static class MathLibrary
     {

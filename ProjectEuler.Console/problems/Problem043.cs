@@ -1,5 +1,5 @@
 using System.Numerics;
-using Library;
+using ProjectEuler.Lib;
 
 public class Problem043
 {
@@ -43,7 +43,7 @@ public class Problem043
     public string Run()
     {
         string str = "0123456789";
-        Library.StringExtensions.FindPermutations(Permutations, str.ToCharArray(), 0, str.Length);
+        StringExtensions.FindPermutations(Permutations, str.ToCharArray(), 0, str.Length);
         findPermutationsWithProperty();
         return sumPermutationWithProperty().ToString();
     }

@@ -1,4 +1,4 @@
-using Library;
+using ProjectEuler.Lib;
 
 public class Problem034
 {

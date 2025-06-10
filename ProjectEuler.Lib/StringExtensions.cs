@@ -1,4 +1,4 @@
-namespace Library
+namespace ProjectEuler.Lib
 {
     public static class StringExtensions
     {

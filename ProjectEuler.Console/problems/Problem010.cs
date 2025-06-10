@@ -1,4 +1,4 @@
-using Library;
+using ProjectEuler.Lib;
 public class Problem010
 {
     private const long MAX_VALUE = 2000000;
