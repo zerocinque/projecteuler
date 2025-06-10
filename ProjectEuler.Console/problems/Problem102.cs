@@ -1,3 +1,4 @@
+
 public class Problem102
 {
 
@@ -15,27 +16,28 @@ public class Problem102
             if (line.Length == 6)
             {
                 var triangle = new Triangle(
-                    new Coordinate(line[0], line[1]),
-                    new Coordinate(line[2], line[3]),
-                    new Coordinate(line[4], line[5])
+                    new Point(line[0], line[1]),
+                    new Point(line[2], line[3]),
+                    new Point(line[4], line[5])
                 );
                 Triangles.Add(triangle);
             }
         }
+
     }
 
     public long Run()
     {
-        return Triangles.Count(t => t.NotContainsOrigin());
+        return Triangles.Count(t => t.ContainsOrigin());
     }
 }
 
-public class Coordinate
+public class Point
 {
     public int X { get; set; }
     public int Y { get; set; }
 
-    public Coordinate(int x, int y)
+    public Point(int x, int y)
     {
         X = x;
         Y = y;
@@ -49,11 +51,11 @@ public class Coordinate
 
 public class Triangle
 {
-    public Coordinate A { get; set; }
-    public Coordinate B { get; set; }
-    public Coordinate C { get; set; }
+    public Point A { get; set; }
+    public Point B { get; set; }
+    public Point C { get; set; }
 
-    public Triangle(Coordinate x, Coordinate y, Coordinate z)
+    public Triangle(Point x, Point y, Point z)
     {
         A = x;
         B = y;
@@ -62,9 +64,12 @@ public class Triangle
 
     public bool ContainsOrigin()
     {
-        var sumX = A.X + B.X + C.X;
-        var sumY = A.Y + B.Y + C.Y;
-        return (sumX > 0 && sumY < 0) || (sumX < 0 && sumY > 0);
+        double cross1 = A.X * B.Y - A.Y * B.X;
+        double cross2 = B.X * C.Y - B.Y * C.X;
+        double cross3 = C.X * A.Y - C.Y * A.X;
+
+        return (cross1 >= 0 && cross2 >= 0 && cross3 >= 0) ||
+               (cross1 <= 0 && cross2 <= 0 && cross3 <= 0);
     }
 
     public bool NotContainsOrigin()
